@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+import Index from "./components";
+import { Switch, Route } from "react-router-dom";
+
+class App extends Component {
+  state = {
+    messages: [],
+    style: true,
+  };
+
+  render() {
+    return (
+      <div className="App" style={{ minHeight: "100vh", position: "relative" }}>
+        <div className="container ">
+          <div className="row">
+            <div className="col">
+              <Switch>
+                <Route path={"/:userId/:id"} component={Index}></Route>
+                <Route exist path={"/:userId"} component={Index}></Route>
+
+                <Route
+                  path={"/"}
+                  component={() => (window.location = "http://lassoshare.com/")}
+                ></Route>
+              </Switch>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
