@@ -7,8 +7,7 @@ import FirstStyle from "./FirstStyle";
 import SecondStyle from "./SecondStyle";
 import firebase from "../Firebase";
 import axios from "axios";
-import { Route, Link } from "react-router-dom";
-import SocialIcons from "./SocialIcons";
+import { Route } from "react-router-dom";
 
 class Index extends Component {
   state = {

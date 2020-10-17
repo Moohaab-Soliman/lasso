@@ -68,14 +68,14 @@ const UserData = (props) => {
 
         <p className={classes.job}>{message.position}</p>
         <div>
-          {message.isEmailEnabled == true ? (
+          {message.isEmailEnabled === true ? (
             <a href={"mailto: " + message.email}>
               <button className={classes.button}>
                 <EmailIcon /> Email
               </button>
             </a>
           ) : null}
-          {message.isNumEnabled == true ? (
+          {message.isNumEnabled === true ? (
             <a href={"tel: " + message.number}>
               <button className={classes.button}>
                 <CallIcon /> Call
