@@ -9,7 +9,7 @@ import firebase from "../Firebase";
 import axios from "axios";
 import { Route } from "react-router-dom";
 
-class Index extends Component {
+class Main extends Component {
   state = {
     userData: [],
     getSocialLinks: [],
@@ -122,4 +122,4 @@ class Index extends Component {
   }
 }
 
-export default Index;
+export default Main;
