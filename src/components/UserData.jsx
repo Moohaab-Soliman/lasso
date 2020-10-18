@@ -45,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
     borderWidth: "1px",
     margin: theme.spacing(0.5),
     display: "inline-block",
-    marginBottom: theme.spacing(2),
   },
 }));
 
