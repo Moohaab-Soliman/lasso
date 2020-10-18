@@ -19,10 +19,10 @@ class App extends Component {
               <Switch>
                 <Route path={"/:userId?/:id?"} component={Index}></Route>
 
-                {/* <Route
+                <Route
                   path={"/"}
                   component={() => (window.location = "http://lassoshare.com/")}
-                ></Route> */}
+                ></Route>
               </Switch>
             </div>
           </div>

@@ -7,11 +7,14 @@ import FirstStyle from "./FirstStyle";
 import SecondStyle from "./SecondStyle";
 import firebase from "../Firebase";
 
+import { Route } from "react-router-dom";
+
 class Index extends Component {
   state = {
     userData: [],
     getSocialLinks: [],
     isUserFound: true,
+    isLoading: true,
   };
 
   handleConsole = () => {
@@ -34,14 +37,18 @@ class Index extends Component {
         });
     }
 
-    const getParams = fetch(`${params.userId}`);
-
-    getParams
-      .then((response) => {
-        db.collection("profile")
+    fetch(`${params.userId}`)
+      .then((response) =>
+        db
+          .collection("profile")
           .where("username", "==", params.userId)
           .onSnapshot((querySnapshot) => {
-            const userData = [];
+            console.log(querySnapshot);
+            this.setState({ isLoading: false });
+            let userData = [];
+            querySnapshot.docs.length > 0
+              ? this.setState({ isUserFound: true })
+              : this.setState({ isUserFound: false });
 
             querySnapshot.forEach((doc) => {
               userData.push(doc.data());
@@ -64,8 +71,8 @@ class Index extends Component {
                 });
             } else {
             }
-          });
-      })
+          })
+      )
       .catch(function (error) {
         // handle error
         console.log(error);
@@ -88,7 +95,9 @@ class Index extends Component {
     return (
       <div className="App">
         {userData.map((message) => {
-          return (
+          return message.directOn === true ? (
+            <Route component={() => (window.location = message.hLink)} />
+          ) : (
             <div key={message.uid}>
               <CoverPhoto cover={message.coverPhoto} />
               <ProfilePhoto profilePhoto={message.profilePhoto} />
