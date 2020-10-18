@@ -39,40 +39,39 @@ class Index extends Component {
     axios
       .get(`${params.userId}`)
       .then(
-        console.log(params.userId, params.id)
-        // db
-        //   .collection("profile")
-        //   .where("username", "==", params.userId)
-        //   .onSnapshot((querySnapshot) => {
-        //     console.log(querySnapshot);
-        //     this.setState({ isLoading: false });
-        //     let userData = [];
-        //     querySnapshot.docs.length > 0
-        //       ? this.setState({ isUserFound: true })
-        //       : this.setState({ isUserFound: false });
+        db
+          .collection("profile")
+          .where("username", "==", params.userId)
+          .onSnapshot((querySnapshot) => {
+            console.log(querySnapshot);
+            this.setState({ isLoading: false });
+            let userData = [];
+            querySnapshot.docs.length > 0
+              ? this.setState({ isUserFound: true })
+              : this.setState({ isUserFound: false });
 
-        //     querySnapshot.forEach((doc) => {
-        //       userData.push(doc.data());
-        //       this.setState({ userData });
-        //     });
-        //     if (userData.length >= 1) {
-        //       db.collection("profile")
-        //         .doc(querySnapshot.docs[0].id)
-        //         .collection("userSocialLinks")
-        //         .get()
-        //         .then((mydata) => {
-        //           let getSocialLinks = [];
+            querySnapshot.forEach((doc) => {
+              userData.push(doc.data());
+              this.setState({ userData });
+            });
+            //     if (userData.length >= 1) {
+            //       db.collection("profile")
+            //         .doc(querySnapshot.docs[0].id)
+            //         .collection("userSocialLinks")
+            //         .get()
+            //         .then((mydata) => {
+            //           let getSocialLinks = [];
 
-        //           mydata.forEach((doc) => {
-        //             getSocialLinks.push(doc.data());
-        //             this.setState({
-        //               getSocialLinks,
-        //             });
-        //           });
-        //         });
-        //     } else {
-        //     }
-        //   })
+            //           mydata.forEach((doc) => {
+            //             getSocialLinks.push(doc.data());
+            //             this.setState({
+            //               getSocialLinks,
+            //             });
+            //           });
+            //         });
+            //     } else {
+            //     }
+          })
       )
       .catch(function (error) {
         // handle error
