@@ -20,7 +20,7 @@ class Index extends Component {
     const {
       match: { params },
     } = this.props;
-    console.log(params);
+
     if (params.id != null) {
       db.collection("profile")
         .where("username", "==", params.userId)
@@ -42,7 +42,7 @@ class Index extends Component {
           .where("username", "==", params.userId)
           .onSnapshot((querySnapshot) => {
             const userData = [];
-            console.log(userData);
+
             querySnapshot.forEach((doc) => {
               userData.push(doc.data());
               this.setState({ userData });
