@@ -13,7 +13,6 @@ class Index extends Component {
     userData: [],
     getSocialLinks: [],
     isUserFound: true,
-    isLoading: true,
   };
 
   handleConsole = () => {
@@ -44,11 +43,8 @@ class Index extends Component {
           .where("username", "==", params.userId)
           .onSnapshot((querySnapshot) => {
             console.log(querySnapshot);
-            this.setState({ isLoading: false });
+
             let userData = [];
-            querySnapshot.docs.length > 0
-              ? this.setState({ isUserFound: true })
-              : this.setState({ isUserFound: false });
 
             querySnapshot.forEach((doc) => {
               userData.push(doc.data());
