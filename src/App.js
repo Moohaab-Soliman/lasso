@@ -16,16 +16,14 @@ class App extends Component {
         <div className="container ">
           <div className="row">
             <div className="col">
-              <Router>
-                <Switch>
-                  <Route path={"/:userId?/:id?"} component={Index}></Route>
+              <Switch>
+                <Route path={"/:userId?/:id?"} component={Index}></Route>
 
-                  {/* <Route
+                {/* <Route
                   path={"/"}
                   component={() => (window.location = "http://lassoshare.com/")}
                 ></Route> */}
-                </Switch>
-              </Router>
+              </Switch>
             </div>
           </div>
         </div>
