@@ -9,7 +9,7 @@ import firebase from "../Firebase";
 import axios from "axios";
 import { Route } from "react-router-dom";
 
-class Main extends Component {
+class Index extends Component {
   state = {
     userData: [],
     getSocialLinks: [],
@@ -89,7 +89,7 @@ class Main extends Component {
   render() {
     const { isUserFound, isLoading, userData, getSocialLinks } = this.state;
 
-    if (isLoading) return <h1 className="loader" />;
+    if (isLoading) return <h1 className="loader">.</h1>;
     if (!isUserFound) return <p>User not found</p>;
 
     return (
@@ -122,4 +122,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default Index;

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import "./App.css";
-import Main from "./components/Main";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import Index from "./components/index";
+import { Switch, Route } from "react-router-dom";
 
 class App extends Component {
   state = {
@@ -16,19 +16,15 @@ class App extends Component {
         <div className="container ">
           <div className="row">
             <div className="col">
-              <Router>
-                <Switch>
-                  <Route path={"/:userId/:id"} component={Main}></Route>
-                  <Route exist path={"/:userId"} component={Main}></Route>
+              <Switch>
+                <Route path={"/:userId/:id"} component={Index}></Route>
+                <Route exist path={"/:userId"} component={Index}></Route>
 
-                  <Route
-                    path={"/"}
-                    component={() =>
-                      (window.location = "http://lassoshare.com/")
-                    }
-                  ></Route>
-                </Switch>
-              </Router>
+                <Route
+                  path={"/"}
+                  component={() => (window.location = "http://lassoshare.com/")}
+                ></Route>
+              </Switch>
             </div>
           </div>
         </div>
