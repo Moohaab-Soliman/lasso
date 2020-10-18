@@ -44,6 +44,7 @@ class Index extends Component {
           .collection("profile")
           .where("username", "==", params.userId)
           .onSnapshot((querySnapshot) => {
+            console.log(querySnapshot);
             this.setState({ isLoading: false });
             let userData = [];
             querySnapshot.docs.length > 0
