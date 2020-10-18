@@ -35,8 +35,9 @@ class Index extends Component {
     //     });
     // }
 
-    axios
-      .get(`/${params.userId}`)
+    const getParams = axios.get(`${params.userId}`);
+
+    getParams
       .then(
         db
           .collection("profile")
