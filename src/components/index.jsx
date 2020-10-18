@@ -7,7 +7,6 @@ import FirstStyle from "./FirstStyle";
 import SecondStyle from "./SecondStyle";
 import firebase from "../Firebase";
 import axios from "axios";
-import { Route, Link } from "react-router-dom";
 
 class Index extends Component {
   state = {
@@ -23,19 +22,6 @@ class Index extends Component {
     const {
       match: { params },
     } = this.props;
-
-    if (params.id != null) {
-      db.collection("profile")
-        .where("username", "==", params.userId)
-        .get()
-        .then((value) => {
-          db.collection("profile")
-            .doc(value.docs[0].id)
-            .update({
-              nOfTabs: firebase.firestore.FieldValue.increment(1),
-            });
-        });
-    }
 
     axios
       .get(`${params.userId}`)
