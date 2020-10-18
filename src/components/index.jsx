@@ -6,7 +6,6 @@ import UserData from "./UserData";
 import FirstStyle from "./FirstStyle";
 import SecondStyle from "./SecondStyle";
 import firebase from "../Firebase";
-import axios from "axios";
 
 class Index extends Component {
   state = {
@@ -35,12 +34,11 @@ class Index extends Component {
     //     });
     // }
 
-    const getParams = axios.get(`${params.userId}`);
+    const getParams = fetch(`${params.userId}`);
 
     getParams
-      .then(
-        db
-          .collection("profile")
+      .then((response) => {
+        db.collection("profile")
           .where("username", "==", params.userId)
           .onSnapshot((querySnapshot) => {
             const userData = [];
@@ -66,8 +64,8 @@ class Index extends Component {
             //     });
             // } else {
             // }
-          })
-      )
+          });
+      })
       .catch(function (error) {
         // handle error
         console.log(error);
