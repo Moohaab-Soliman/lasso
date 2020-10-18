@@ -43,7 +43,6 @@ class Index extends Component {
           .collection("profile")
           .where("username", "==", params.userId)
           .onSnapshot((querySnapshot) => {
-            console.log(querySnapshot);
             this.setState({ isLoading: false });
             let userData = [];
             querySnapshot.docs.length > 0
@@ -73,12 +72,8 @@ class Index extends Component {
             }
           })
       )
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .then(function () {
-        // always executed
+      .catch((error) => {
+        // Code for handling the error
       });
   };
 

@@ -17,8 +17,8 @@ class App extends Component {
           <div className="row">
             <div className="col">
               <Switch>
-                <Route path={"/:userId?/:id?"} component={Index}></Route>
-
+                <Route path={"/:userId/:id"} component={Index}></Route>
+                <Route path={"/:userId"} component={Index}></Route>
                 <Route
                   path={"/"}
                   component={() => (window.location = "http://lassoshare.com/")}
