@@ -18,8 +18,7 @@ class App extends Component {
             <div className="col">
               <Router>
                 <Switch>
-                  <Route path={"/:userId/:id"} component={Index}></Route>
-                  <Route path={"/:userId"} component={Index}></Route>
+                  <Route path={"/:userId?/:id?"} component={Index}></Route>
 
                   {/* <Route
                   path={"/"}
