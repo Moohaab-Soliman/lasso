@@ -7,7 +7,7 @@ import FirstStyle from "./FirstStyle";
 import SecondStyle from "./SecondStyle";
 import firebase from "../Firebase";
 import axios from "axios";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 class Index extends Component {
   state = {
@@ -96,9 +96,7 @@ class Index extends Component {
     return (
       <div className="App">
         {userData.map((message) => {
-          return message.directOn === true ? (
-            <Route component={() => (window.location = message.hLink)} />
-          ) : (
+          return (
             <div key={message.uid}>
               <CoverPhoto cover={message.coverPhoto} />
               <ProfilePhoto profilePhoto={message.profilePhoto} />
