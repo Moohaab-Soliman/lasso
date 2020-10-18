@@ -42,11 +42,10 @@ class Index extends Component {
           .collection("profile")
           .where("username", "==", params.userId)
           .onSnapshot((querySnapshot) => {
-            let userData = [];
-
+            const userData = [];
+            console.log(userData);
             querySnapshot.forEach((doc) => {
               userData.push(doc.data());
-              console.log(userData);
               this.setState({ userData });
             });
             // if (userData.length >= 1) {
