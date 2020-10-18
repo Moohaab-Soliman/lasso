@@ -23,42 +23,56 @@ class Index extends Component {
       match: { params },
     } = this.props;
 
+    // if (params.id != null) {
+    //   db.collection("profile")
+    //     .where("username", "==", params.userId)
+    //     .get()
+    //     .then((value) => {
+    //       db.collection("profile")
+    //         .doc(value.docs[0].id)
+    //         .update({
+    //           nOfTabs: firebase.firestore.FieldValue.increment(1),
+    //         });
+    //     });
+    // }
+
     axios
       .get(`${params.userId}`)
       .then(
-        db
-          .collection("profile")
-          .where("username", "==", params.userId)
-          .onSnapshot((querySnapshot) => {
-            console.log(querySnapshot);
-            this.setState({ isLoading: false });
-            let userData = [];
-            querySnapshot.docs.length > 0
-              ? this.setState({ isUserFound: true })
-              : this.setState({ isUserFound: false });
+        console.log(params.userId, params.id)
+        // db
+        //   .collection("profile")
+        //   .where("username", "==", params.userId)
+        //   .onSnapshot((querySnapshot) => {
+        //     console.log(querySnapshot);
+        //     this.setState({ isLoading: false });
+        //     let userData = [];
+        //     querySnapshot.docs.length > 0
+        //       ? this.setState({ isUserFound: true })
+        //       : this.setState({ isUserFound: false });
 
-            querySnapshot.forEach((doc) => {
-              userData.push(doc.data());
-              this.setState({ userData });
-            });
-            if (userData.length >= 1) {
-              db.collection("profile")
-                .doc(querySnapshot.docs[0].id)
-                .collection("userSocialLinks")
-                .get()
-                .then((mydata) => {
-                  let getSocialLinks = [];
+        //     querySnapshot.forEach((doc) => {
+        //       userData.push(doc.data());
+        //       this.setState({ userData });
+        //     });
+        //     if (userData.length >= 1) {
+        //       db.collection("profile")
+        //         .doc(querySnapshot.docs[0].id)
+        //         .collection("userSocialLinks")
+        //         .get()
+        //         .then((mydata) => {
+        //           let getSocialLinks = [];
 
-                  mydata.forEach((doc) => {
-                    getSocialLinks.push(doc.data());
-                    this.setState({
-                      getSocialLinks,
-                    });
-                  });
-                });
-            } else {
-            }
-          })
+        //           mydata.forEach((doc) => {
+        //             getSocialLinks.push(doc.data());
+        //             this.setState({
+        //               getSocialLinks,
+        //             });
+        //           });
+        //         });
+        //     } else {
+        //     }
+        //   })
       )
       .catch(function (error) {
         // handle error
@@ -81,27 +95,7 @@ class Index extends Component {
 
     return (
       <div className="App">
-        {userData.map((message) => {
-          return (
-            <div key={message.uid}>
-              <CoverPhoto cover={message.coverPhoto} />
-              <ProfilePhoto profilePhoto={message.profilePhoto} />
-              <UserData message={message} />
-
-              {message.isBusiness === true ? (
-                <FirstStyle
-                  socials={getSocialLinks.map((social) => social)}
-                  message={message}
-                />
-              ) : (
-                <SecondStyle
-                  socials={getSocialLinks.map((social) => social)}
-                  message={message}
-                />
-              )}
-            </div>
-          );
-        })}
+        <h1>hey there</h1>
       </div>
     );
   }
