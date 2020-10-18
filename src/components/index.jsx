@@ -21,18 +21,18 @@ class Index extends Component {
       match: { params },
     } = this.props;
     console.log(params);
-    // if (params.id != null) {
-    //   db.collection("profile")
-    //     .where("username", "==", params.userId)
-    //     .get()
-    //     .then((value) => {
-    //       db.collection("profile")
-    //         .doc(value.docs[0].id)
-    //         .update({
-    //           nOfTabs: firebase.firestore.FieldValue.increment(1),
-    //         });
-    //     });
-    // }
+    if (params.id != null) {
+      db.collection("profile")
+        .where("username", "==", params.userId)
+        .get()
+        .then((value) => {
+          db.collection("profile")
+            .doc(value.docs[0].id)
+            .update({
+              nOfTabs: firebase.firestore.FieldValue.increment(1),
+            });
+        });
+    }
 
     const getParams = fetch(`${params.userId}`);
 
@@ -47,23 +47,23 @@ class Index extends Component {
               userData.push(doc.data());
               this.setState({ userData });
             });
-            // if (userData.length >= 1) {
-            //   db.collection("profile")
-            //     .doc(querySnapshot.docs[0].id)
-            //     .collection("userSocialLinks")
-            //     .get()
-            //     .then((mydata) => {
-            //       let getSocialLinks = [];
+            if (userData.length >= 1) {
+              db.collection("profile")
+                .doc(querySnapshot.docs[0].id)
+                .collection("userSocialLinks")
+                .get()
+                .then((mydata) => {
+                  let getSocialLinks = [];
 
-            //       mydata.forEach((doc) => {
-            //         getSocialLinks.push(doc.data());
-            //         this.setState({
-            //           getSocialLinks,
-            //         });
-            //       });
-            //     });
-            // } else {
-            // }
+                  mydata.forEach((doc) => {
+                    getSocialLinks.push(doc.data());
+                    this.setState({
+                      getSocialLinks,
+                    });
+                  });
+                });
+            } else {
+            }
           });
       })
       .catch(function (error) {
