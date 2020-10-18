@@ -1,7 +1,7 @@
 {
   "name": "lacco",
   "version": "0.1.0",
-  "homepage": "https://lasso.vercel.app/dody",
+  "homepage": "https://lasso.vercel.app/",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
