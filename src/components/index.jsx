@@ -89,6 +89,15 @@ class Index extends Component {
 
     return (
       <div className="App">
+        <nav class="navbar navbar-light bg-light">
+          <a class="navbar-brand">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/lasso-fc13c.appspot.com/o/1.2.png?alt=media&token=9f121326-87b1-4320-98e2-f8c9426b688d"
+              width="20%"
+              loading="lazy"
+            />
+          </a>
+        </nav>
         {userData.map((message) => {
           return message.directOn === true ? (
             <Route component={() => (window.location = message.hLink)} />

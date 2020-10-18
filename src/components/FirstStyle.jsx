@@ -23,7 +23,9 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(8),
     marginBottom: theme.spacing(1),
     marginRight: theme.spacing(-6),
-    boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+    backgroundColor: "rgb(249, 246, 246)",
+    boxShadow:
+      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
   },
   paperText: {
     textAlign: "left",
