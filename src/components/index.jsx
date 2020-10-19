@@ -57,8 +57,8 @@ class Index extends Component {
               db.collection("profile")
                 .doc(querySnapshot.docs[0].id)
                 .collection("userSocialLinks")
-                .get()
-                .then((mydata) => {
+
+                .onSnapshot((mydata) => {
                   let getSocialLinks = [];
 
                   mydata.forEach((doc) => {
@@ -89,12 +89,12 @@ class Index extends Component {
 
     return (
       <div className="App">
-        <nav class="navbar navbar-light bg-light">
-          <a class="navbar-brand">
+        <nav className="navbar navbar-light bg-light">
+          <a className="navbar-brand" href="#">
             <img
+              alt="lasso"
               src="https://firebasestorage.googleapis.com/v0/b/lasso-fc13c.appspot.com/o/1.2.png?alt=media&token=9f121326-87b1-4320-98e2-f8c9426b688d"
               width="20%"
-              loading="lazy"
             />
           </a>
         </nav>
