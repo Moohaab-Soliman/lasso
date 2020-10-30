@@ -121,12 +121,12 @@ footer {
 }
 .footerLinks li {
   display: inline;
-  margin: 10px;
+  margin: 12px;
 }
 .footerLinks a {
   color: black;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 16px;
 }
 .copyright {
   text-align: center;
