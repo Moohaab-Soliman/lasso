@@ -6,8 +6,8 @@ const styles = makeStyles((theme) => ({
   small: {
     // width: "100%",
     // height: "100%",
-    minWidth: theme.spacing(19),
-    minHeight: theme.spacing(19),
+    minWidth: theme.spacing(18),
+    minHeight: theme.spacing(18),
 
     marginBottom: theme.spacing(1),
   },
