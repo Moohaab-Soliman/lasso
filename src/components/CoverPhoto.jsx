@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   cover: {
-    maxWidth: "110%",
+    maxWidth: "107%",
   },
 }));
 
@@ -24,7 +24,7 @@ const CoverPhoto = (props) => {
       <img
         className={classes.cover}
         src={props.cover}
-        width="1100em"
+        width="820px"
         height="auto"
         alt="cover photo"
       />
