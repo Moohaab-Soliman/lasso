@@ -4,8 +4,11 @@ import Avatar from "@material-ui/core/Avatar";
 
 const styles = makeStyles((theme) => ({
   small: {
-    width: theme.spacing(20),
-    height: theme.spacing(20),
+    // width: "100%",
+    // height: "100%",
+    minWidth: theme.spacing(19),
+    minHeight: theme.spacing(19),
+
     marginBottom: theme.spacing(1),
   },
 }));
@@ -28,15 +31,17 @@ const SecondStyle = (props) => {
                     target="_Blank"
                     rel="noopener noreferrer"
                   >
-                    <Avatar
-                      alt="Remy Sharp"
-                      src={
-                        message.isMinimal === false
-                          ? social.img
-                          : social.imgMinimal
-                      }
-                      className={classes.small}
-                    />
+                    <center>
+                      <Avatar
+                        alt="Remy Sharp"
+                        src={
+                          message.isMinimal === false
+                            ? social.img
+                            : social.imgMinimal
+                        }
+                        className={classes.small}
+                      />
+                    </center>
                   </a>
                 </div>
               ))}

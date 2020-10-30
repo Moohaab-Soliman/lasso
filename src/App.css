@@ -85,3 +85,55 @@ div.scrollmenu a {
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 480px) {
+  .picblock {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/lasso-fc13c.appspot.com/o/1.2.png?alt=media&token=9f121326-87b1-4320-98e2-f8c9426b688d");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+@media (min-width: 481px) {
+  .picblock {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/lasso-fc13c.appspot.com/o/1.2.png?alt=media&token=9f121326-87b1-4320-98e2-f8c9426b688d");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+footer {
+  background: rgb(249, 246, 246);
+  position: inherit;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: arial;
+}
+.footerLinks {
+  text-align: center;
+}
+.footerLinks ul {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+}
+.footerLinks li {
+  display: inline;
+  margin: 10px;
+}
+.footerLinks a {
+  color: black;
+  text-decoration: none;
+  font-size: 17px;
+}
+.copyright {
+  text-align: center;
+}
+
+.copyright p {
+  margin: 0;
+  color: black;
+  font-size: 13px;
+}
