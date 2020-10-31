@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     flexWrap: "wrap",
     "& > *": {
-      width: "90%",
       height: theme.spacing(12),
     },
   },
@@ -38,16 +37,14 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(8),
     marginTop: theme.spacing(-1),
   },
-  arrow: {
-    display: "flex",
-    marginLeft: theme.spacing(35),
-    marginTop: theme.spacing(-6),
-  },
+
   paper: {
     boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
     height: theme.spacing(10),
     marginBottom: theme.spacing(2.8),
     marginTop: theme.spacing(2),
+    minWidth: theme.spacing(40),
+    width: "70%",
   },
   small: {},
 }));
