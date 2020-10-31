@@ -20,7 +20,7 @@ const SecondStyle = (props) => {
     <div>
       <div className="container ">
         <div className="row">
-          <div className="col"></div>
+          <div className="col-1"></div>
 
           <div className="col">
             <div className="wrapper">
@@ -47,7 +47,7 @@ const SecondStyle = (props) => {
               ))}
             </div>
           </div>
-          <div className="col"></div>
+          <div className="col-1"></div>
         </div>
       </div>
     </div>
