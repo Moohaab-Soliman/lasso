@@ -4,12 +4,11 @@ import Avatar from "@material-ui/core/Avatar";
 
 const styles = makeStyles((theme) => ({
   small: {
-    // width: "100%",
+    width: "7em",
+    height: "auto",
     // height: "100%",
-    minWidth: theme.spacing(18),
-    minHeight: theme.spacing(18),
-
-    marginBottom: theme.spacing(1),
+    // minWidth: theme.spacing(18),
+    // minHeight: theme.spacing(18),
   },
 }));
 
@@ -20,7 +19,7 @@ const SecondStyle = (props) => {
     <div>
       <div className="container ">
         <div className="row">
-          <div className="col-1"></div>
+          <div className="col"></div>
 
           <div className="col">
             <div className="wrapper">
@@ -47,7 +46,7 @@ const SecondStyle = (props) => {
               ))}
             </div>
           </div>
-          <div className="col-1"></div>
+          <div className="col"></div>
         </div>
       </div>
     </div>
