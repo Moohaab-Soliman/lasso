@@ -11,16 +11,21 @@ import { Route } from "react-router-dom";
 import ShoppingCartSharpIcon from "@material-ui/icons/ShoppingCartSharp";
 const useStyles = (theme) => ({
   logo: {
-    // width: theme.spacing(15),
-    // height: theme.spacing(10),
-    // position: "center",
-    // display: "block",
-    // marginLeft: "auto",
-    // marginRight: "auto",
-    // maxWidth: "15%",
     width: "auto",
     maxWidth: "10%",
     heith: "auto",
+  },
+  home: {
+    width: "1.3em",
+    height: "1.3em",
+    marginLeft: "-.8em",
+  },
+  cart: {
+    width: "1.2em",
+    height: "1.2em",
+    marginTop: ".2em",
+    marginRight: "-.8em",
+    color: "black",
   },
 });
 
@@ -128,10 +133,10 @@ class Index extends Component {
               rel="noopener noreferrer"
             >
               <svg
-                width="2em"
-                height="2em"
+                // width="1.3em"
+                // height="1.3em"
                 viewBox="0 0 16 16"
-                className="bi bi-house-fill"
+                className={classes.home}
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -158,11 +163,12 @@ class Index extends Component {
               rel="noopener noreferrer"
             >
               <ShoppingCartSharpIcon
-                style={{
-                  width: "1.8em",
-                  height: "1.8em",
-                  color: "black",
-                }}
+                className={classes.cart}
+                // style={{
+                //   width: "1.2em",
+                //   height: "1.2em",
+                //   color: "black",
+                // }}
               />
             </a>
           </nav>

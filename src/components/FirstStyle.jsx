@@ -17,11 +17,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   large: {
-    display: "flex",
-    width: theme.spacing(8),
-    height: theme.spacing(8),
+    // display: "flex",
+    // width: theme.spacing(6.5),
+    // height: theme.spacing(6),
+    width: "2.5em",
+    height: "2.5em",
     marginBottom: theme.spacing(1),
-    marginRight: theme.spacing(-6),
+    marginRight: theme.spacing(-5),
     backgroundColor: "rgb(249, 246, 246)",
     boxShadow:
       "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
