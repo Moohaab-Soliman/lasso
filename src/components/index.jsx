@@ -110,17 +110,6 @@ class Index extends Component {
 
     return (
       <div className="App">
-        {/* <nav className="navbar navbar-light bg-light">
-          <a href="#">
-            <center>
-              <img
-                className={classes.logo}
-                alt="lasso"
-                src="https://firebasestorage.googleapis.com/v0/b/lasso-fc13c.appspot.com/o/1.2.png?alt=media&token=9f121326-87b1-4320-98e2-f8c9426b688d"
-              />
-            </center>
-          </a>
-        </nav> */}
         <center>
           <nav
             className="navbar navbar-light bg-light"
