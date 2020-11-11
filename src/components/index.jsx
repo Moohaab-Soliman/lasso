@@ -56,12 +56,14 @@ class Index extends Component {
             });
         });
     }
-
-    fetch(`${params.userId}`)
+    const haha = params.userId.toLowerCase();
+    const hoho = params.userId.toUpperCase();
+    console.log(params.userId.toLowerCase());
+    fetch(`${haha || hoho}`)
       .then((response) =>
         db
           .collection("profile")
-          .where("username", "==", params.userId)
+          .where("username", "==", haha)
           .onSnapshot((querySnapshot) => {
             this.setState({ isLoading: false });
             let userData = [];
@@ -186,6 +188,72 @@ class Index extends Component {
             </div>
           );
         })}
+        <footer>
+          <div className="footerLinks">
+            <ul>
+              <a href="" target="_Blank">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/lasso-fc13c.appspot.com/o/images%2Fgoogle%20play.png?alt=media&token=6095f23a-b13c-4463-8ca4-dcc0547b114a"
+                  width="150em"
+                  style={{ margin: ".5em" }}
+                />
+              </a>
+              <a href="" target="_Blank">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/lasso-fc13c.appspot.com/o/images%2Fapp%20store.png?alt=media&token=4c575413-0c22-438b-a2f3-cabccd3c9279"
+                  width="150em"
+                />
+              </a>
+              <br />
+              <li>
+                <a href="https://lassoshare.com/pages/tracking" target="_Blank">
+                  Track Order
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://lassoshare.com/pages/contact-us"
+                  target="_Blank"
+                >
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://lassoshare.com/pages/frequently-asked-questions"
+                  target="_Blank"
+                >
+                  Help Center
+                </a>
+              </li>
+              <li>
+                <a href="https://lassoshare.com/pages/shipping" target="_Blank">
+                  Shipping & Returns
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://lassoshare.com/pages/terms-of-service"
+                  target="_Blank"
+                >
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://lassoshare.com/pages/privacy-policy"
+                  target="_Blank"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+            </ul>
+          </div>
+          <br />
+          <div className="copyright">
+            <p>© 2020 Lasso Tech LLC</p>
+          </div>
+        </footer>
       </div>
     );
   }

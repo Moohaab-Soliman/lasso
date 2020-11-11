@@ -11,7 +11,6 @@ class App extends Component {
   };
 
   render() {
-    const userId = "/:userId";
     return (
       <div className="App" style={{ minHeight: "100vh", position: "relative" }}>
         <div className="container ">
@@ -23,7 +22,7 @@ class App extends Component {
                   path={"/:userId/:id"}
                   component={Index}
                 ></Route>
-                <Route path={userId.toString()} component={Index}></Route>
+                <Route path={"/:userId"} component={Index} sensitive></Route>
                 <Route
                   path={"/"}
                   component={() => (window.location = "http://lassoshare.com/")}
