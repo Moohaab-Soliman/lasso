@@ -53,19 +53,20 @@ const useStyles = makeStyles((theme) => ({
 
 const FirstStyle = (props) => {
   const classes = useStyles();
-  const { socials, message } = props;
+  const { socials, message, webLinks } = props;
 
   return (
     <div>
       <SocialIcons socials={socials} message={message} />
-      {message.webLinks !== undefined
-        ? message.webLinks.map((item, uid) => {
+      {console.log(webLinks)}
+      {webLinks !== undefined
+        ? webLinks.map((item, uid) => {
             return (
               <div key={uid}>
                 <div className={classes.root}>
                   <Avatar
                     variant="square"
-                    alt={item.subtitle}
+                    alt={item.title}
                     src={item.img}
                     className={classes.large}
                   />
@@ -78,9 +79,7 @@ const FirstStyle = (props) => {
                       rel="noopener noreferrer"
                     >
                       <p className={classes.paperText}>{item.link}</p>
-                      <p className={classes.paperdescription}>
-                        {item.subtitle}
-                      </p>
+                      <p className={classes.paperdescription}>{item.title}</p>
                     </a>
                   </Paper>
                 </div>

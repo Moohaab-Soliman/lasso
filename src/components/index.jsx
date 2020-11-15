@@ -9,6 +9,7 @@ import firebase from "../Firebase";
 import { withStyles } from "@material-ui/core/styles";
 import { Route } from "react-router-dom";
 import ShoppingCartSharpIcon from "@material-ui/icons/ShoppingCartSharp";
+
 const useStyles = (theme) => ({
   logo: {
     width: "auto",
@@ -33,6 +34,7 @@ class Index extends Component {
   state = {
     userData: [],
     getSocialLinks: [],
+    getUserWebLinks: [],
     isUserFound: true,
     isLoading: true,
   };
@@ -57,9 +59,9 @@ class Index extends Component {
         });
     }
     const haha = params.userId.toLowerCase();
-    const hoho = params.userId.toUpperCase();
+
     console.log(params.userId.toLowerCase());
-    fetch(`${haha || hoho}`)
+    fetch(`${haha}`)
       .then((response) =>
         db
           .collection("profile")
@@ -92,6 +94,23 @@ class Index extends Component {
                 });
             } else {
             }
+            if (userData.length >= 1) {
+              db.collection("profile")
+                .doc(querySnapshot.docs[0].id)
+                .collection("userWebLinks")
+
+                .onSnapshot((mydata) => {
+                  let getUserWebLinks = [];
+
+                  mydata.forEach((doc) => {
+                    getUserWebLinks.push(doc.data());
+                    this.setState({
+                      getUserWebLinks,
+                    });
+                  });
+                });
+            } else {
+            }
           })
       )
       .catch((error) => {
@@ -105,7 +124,13 @@ class Index extends Component {
 
   render() {
     const { classes } = this.props;
-    const { isUserFound, isLoading, userData, getSocialLinks } = this.state;
+    const {
+      isUserFound,
+      isLoading,
+      userData,
+      getSocialLinks,
+      getUserWebLinks,
+    } = this.state;
 
     if (isLoading) return <h1 className="loader">.</h1>;
     if (!isUserFound) return <p>User not found</p>;
@@ -177,6 +202,7 @@ class Index extends Component {
               {message.isBusiness === true ? (
                 <FirstStyle
                   socials={getSocialLinks.map((social) => social)}
+                  webLinks={getUserWebLinks.map((webLinks) => webLinks)}
                   message={message}
                 />
               ) : (
