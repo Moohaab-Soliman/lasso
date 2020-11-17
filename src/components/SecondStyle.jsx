@@ -13,6 +13,7 @@ const styles = makeStyles((theme) => ({
 }));
 
 const SecondStyle = (props) => {
+  let handleLinks = "";
   const classes = styles();
   const { socials, message } = props;
   return (
@@ -23,27 +24,38 @@ const SecondStyle = (props) => {
 
           <div className="col">
             <div className="wrapper">
-              {socials.map((social, uid) => (
-                <div key={uid}>
-                  <a
-                    href={social.link + "/" + social.username}
-                    target="_Blank"
-                    rel="noopener noreferrer"
-                  >
-                    <center>
-                      <Avatar
-                        alt="Remy Sharp"
-                        src={
-                          message.isMinimal === false
-                            ? social.img
-                            : social.imgMinimal
-                        }
-                        className={classes.small}
-                      />
-                    </center>
-                  </a>
-                </div>
-              ))}
+              {socials.map(
+                (social, uid) => (
+                  (handleLinks =
+                    social.username.length > 8 ||
+                    social.username.includes("http") ||
+                    social.username.includes("https") ||
+                    social.username.includes("www")
+                      ? social.username
+                      : social.link + "/" + social.username),
+                  (
+                    <div key={uid}>
+                      <a
+                        href={handleLinks}
+                        target="_Blank"
+                        rel="noopener noreferrer"
+                      >
+                        <center>
+                          <Avatar
+                            alt="Remy Sharp"
+                            src={
+                              message.isMinimal === false
+                                ? social.img
+                                : social.imgMinimal
+                            }
+                            className={classes.small}
+                          />
+                        </center>
+                      </a>
+                    </div>
+                  )
+                )
+              )}
             </div>
           </div>
           <div className="col"></div>

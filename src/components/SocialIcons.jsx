@@ -14,26 +14,36 @@ const useStyles = makeStyles((theme) => ({
   small: {},
 }));
 const SocialIcons = (props) => {
+  let handleLinks = "";
+  let handleWww = "";
   const classes = useStyles();
   const { socials, message } = props;
   return (
     <div className="scrollmenu">
-      {socials.map((social, uid) => {
-        return (
-          <a
-            key={uid}
-            href={social.link + "/" + social.username}
-            target="_Blank"
-            rel="noopener noreferrer"
-          >
-            <Avatar
-              alt=""
-              src={message.isMinimal === false ? social.img : social.imgMinimal}
-              className={classes.small}
-            />
-          </a>
-        );
-      })}
+      {socials.map(
+        (social, uid) => (
+          (handleLinks =
+            social.username.length > 8 ||
+            social.username.includes("http") ||
+            social.username.includes("https") ||
+            social.username.includes("www")
+              ? social.username
+              : handleWww + social.username),
+          (
+            <React.Fragment key={uid}>
+              <a href={handleLinks} target="_Blank" rel="noopener noreferrer">
+                <Avatar
+                  alt=""
+                  src={
+                    message.isMinimal === false ? social.img : social.imgMinimal
+                  }
+                  className={classes.small}
+                />
+              </a>
+            </React.Fragment>
+          )
+        )
+      )}
     </div>
   );
 };
