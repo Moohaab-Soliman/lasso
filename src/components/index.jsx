@@ -178,14 +178,7 @@ class Index extends Component {
               target="_Blank"
               rel="noopener noreferrer"
             >
-              <ShoppingCartSharpIcon
-                className={classes.cart}
-                // style={{
-                //   width: "1.2em",
-                //   height: "1.2em",
-                //   color: "black",
-                // }}
-              />
+              <ShoppingCartSharpIcon className={classes.cart} />
             </a>
           </nav>
         </center>
@@ -201,13 +194,13 @@ class Index extends Component {
 
               {message.isBusiness === true ? (
                 <FirstStyle
-                  socials={getSocialLinks.map((social) => social)}
+                  socials={getSocialLinks.sort((a, b) => a.index - b.index)}
                   webLinks={getUserWebLinks.map((webLinks) => webLinks)}
                   message={message}
                 />
               ) : (
                 <SecondStyle
-                  socials={getSocialLinks.map((social) => social)}
+                  socials={getSocialLinks.sort((a, b) => a.index - b.index)}
                   message={message}
                 />
               )}
