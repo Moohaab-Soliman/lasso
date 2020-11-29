@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const SocialIcons = (props) => {
   let handleLinks = "";
-  let handleWww = "";
+
   const classes = useStyles();
   const { socials, message } = props;
   return (
@@ -28,7 +28,7 @@ const SocialIcons = (props) => {
             social.username.includes("https") ||
             social.username.includes("www")
               ? social.username
-              : handleWww + social.username),
+              : social.link + "/" + social.username),
           (
             <React.Fragment key={uid}>
               <a href={handleLinks} target="_Blank" rel="noopener noreferrer">
